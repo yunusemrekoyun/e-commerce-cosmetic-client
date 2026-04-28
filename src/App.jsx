@@ -1,10 +1,7 @@
-/********************************************************
- * /Applications/Works/e-commerce/frontend/src/App.jsx
- ********************************************************/
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ShopPage from "./pages/ShopPage";
-// import BlogPage from "./pages/BlogPage";
 import ContactPage from "./pages/ContactPage";
 import CartPage from "./pages/CartPage";
 import AuthPage from "./pages/AuthPage";
@@ -27,13 +24,28 @@ import UpdateCouponPage from "./pages/Admin/Coupons/UpdateCouponPage";
 import OrderPage from "./pages/Admin/Orders/OrderPage";
 import NotFound from "./pages/NotFound";
 import CommentsPage from "./pages/Admin/CommentsPage";
-import PolicyPage from "./pages/PolicyPage"; // Eğer Policy klasörünün içindeyse
+import PolicyPage from "./pages/PolicyPage";
 import MainLayout from "./layouts/MainLayout";
 import AdminLayout from "./layouts/AdminLayout";
 import ProtectedAdminRoute from "./routes/ProtectedAdminRoute";
 import "./App.css";
 
 function App() {
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      const rememberMe = localStorage.getItem("rememberMe");
+      if (rememberMe === "false") {
+        localStorage.removeItem("token");
+        localStorage.removeItem("refreshToken");
+        localStorage.removeItem("isAdmin");
+        localStorage.removeItem("rememberMe");
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, []);
+
   return (
     <Routes>
       <Route element={<MainLayout />}>
@@ -72,9 +84,7 @@ function App() {
         <Route path="coupons/create" element={<CreateCouponPage />} />
         <Route path="coupons/update/:id" element={<UpdateCouponPage />} />
         <Route path="orders" element={<OrderPage />} />
-        ***
         <Route path="comments" element={<CommentsPage />} />
-        ***
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

@@ -18,7 +18,7 @@ const PolicyPage = () => {
       <section id="gizlilik">
         <h2>Gizlilik Politikası</h2>
         <p>
-          ÜNKO KOZMETİK olarak kullanıcılarımızın gizliliğine büyük önem
+          KOZMETİK olarak kullanıcılarımızın gizliliğine büyük önem
           veriyoruz. Kişisel bilgileriniz yalnızca sipariş işlemleri, kullanıcı
           deneyimi geliştirme ve yasal yükümlülükler kapsamında
           kullanılmaktadır. Üçüncü taraflarla paylaşımı yalnızca hizmet

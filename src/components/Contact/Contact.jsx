@@ -21,14 +21,14 @@ const Contact = () => {
             <div className="contact-info">
               <div className="contact-info-item">
                 <div className="contact-info-texts">
-                  <strong> ÜNKO Kozmetik</strong>
+                  <strong> Kozmetik</strong>
                   <p className="contact-street">
                 
-                  Eryaman, 2. Cd. AVM Eryaman D:11/9, 06824 Etimesgut/Ankara
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   </p>
                   <a href="tel:+9005525395910">Telefon: +905525395910</a>
                   <a href="mailto:contact@example.com">
-                    Email: info@ünkokozmetik.com
+                    Email: info@kozmetik.com
                   </a>
                 </div>
               </div>
